@@ -8,6 +8,8 @@ pipeline {
         MIRTH_TARGET_DIR = "${WORKSPACE}"
         MIRTHSYNC_JAR = '/var/jenkins_home/mirthsync-3.1.0-standalone.jar' // Adjusted for Linux path
     }
+
+    stages {
         stage('Push to Mirth') {
             steps {
                 script {
@@ -24,7 +26,7 @@ pipeline {
                                 -v \
                                 push
                         """
-                        echo "Pushed and deployed configurations to Mirth"
+                        echo 'Pushed and deployed configurations to Mirth'
                     } catch (Exception e) {
                         error "Push to Mirth failed: ${e.message}"
                     }
@@ -39,7 +41,7 @@ pipeline {
             archiveArtifacts artifacts: "${env.MIRTH_TARGET_DIR}/**", allowEmptyArchive: true
         }
         failure {
-            echo "Pipeline failed. Check logs for details."
+            echo 'Pipeline failed. Check logs for details.'
         }
     }
 }
