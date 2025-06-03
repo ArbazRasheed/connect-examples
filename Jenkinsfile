@@ -52,14 +52,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            echo "Archiving artifacts from ${env.MIRTH_TARGET_DIR}"
-            archiveArtifacts artifacts: "${env.MIRTH_TARGET_DIR}/**", allowEmptyArchive: true
-        }
-        failure {
-            echo 'Pipeline failed. Check logs for details.'
-        }
-    }
 }
