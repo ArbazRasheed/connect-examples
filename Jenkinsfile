@@ -6,10 +6,20 @@ pipeline {
         MIRTH_USER = 'admin'
         MIRTHSYNC_PASSWORD = 'admin123' // Use Jenkins credentials for security
         MIRTH_TARGET_DIR = "${WORKSPACE}"
-        MIRTHSYNC_JAR = '/var/jenkins_home/mirthsync-3.1.0-standalone.jar' // Adjusted for Linux path
+        MIRTHSYNC_JAR = '/var/jenkins_home/mirthsync-3.1.0-standalone.jar'
     }
 
     stages {
+        stage('Verify Environment') {
+            steps {
+                script {
+                    // Check if MIRTHSYNC_JAR exists and is accessible
+                    sh 'ls -l ${MIRTHSYNC_JAR} || echo "MIRTHSYNC_JAR not found"'
+                    // List contents of MIRTH_TARGET_DIR before running mirthsync
+                    sh 'ls -lR ${MIRTH_TARGET_DIR} || echo "No files in MIRTH_TARGET_DIR"'
+                }
+            }
+        }
         stage('Push to Mirth') {
             steps {
                 script {
@@ -30,6 +40,14 @@ pipeline {
                     } catch (Exception e) {
                         error "Push to Mirth failed: ${e.message}"
                     }
+                }
+            }
+        }
+        stage('Check Files After Push') {
+            steps {
+                script {
+                    // List contents of MIRTH_TARGET_DIR after mirthsync
+                    sh 'ls -lR ${MIRTH_TARGET_DIR} || echo "No files in MIRTH_TARGET_DIR after push"'
                 }
             }
         }
