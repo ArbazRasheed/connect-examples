@@ -30,7 +30,7 @@ pipeline {
                                 -u "${env.MIRTH_USER}" \
                                 -p "${env.MIRTHSYNC_PASSWORD}" \
                                 -t "${env.MIRTH_TARGET_DIR}" \
-                                -m items \
+                                -m code \
                                 -d \
                                 -i \
                                 -v \
