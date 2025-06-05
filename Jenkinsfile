@@ -5,7 +5,7 @@ pipeline {
         MIRTH_URL = 'https://192.168.1.6:8443/api/'
         MIRTH_USER = 'admin'
         MIRTHSYNC_PASSWORD = 'admin123' // Use Jenkins credentials for security
-        MIRTH_TARGET_DIR = "${WORKSPACE}/Channel"
+        MIRTH_TARGET_DIR = "${WORKSPACE}/Channels"
         MIRTHSYNC_JAR = '/var/jenkins_home/mirthsync-3.1.0-standalone.jar'
     }
 
