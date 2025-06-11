@@ -1,1 +1,0 @@
-$c('pages32434', getNumPagesInPDF(getAttachments(true).get(0).getContent()));

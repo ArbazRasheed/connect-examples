@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?><channel version="4.4.0">
+  <id>9c5f43ca-544c-4a40-80f6-455868c7e3f4</id>
+  <nextMetaDataId>2</nextMetaDataId>
+  <name>Example - Validate XSD</name>
+  <description/>
+  <revision>10</revision>
+  <sourceConnector version="4.4.0">
+    <metaDataId>0</metaDataId>
+    <name>sourceConnector</name>
+    <properties class="com.mirth.connect.connectors.vm.VmReceiverProperties" version="4.4.0">
+      <pluginProperties/>
+      <sourceConnectorProperties version="4.4.0">
+        <responseVariable>None</responseVariable>
+        <respondAfterProcessing>true</respondAfterProcessing>
+        <processBatch>false</processBatch>
+        <firstResponse>false</firstResponse>
+        <processingThreads>1</processingThreads>
+        <resourceIds class="linked-hash-map">
+          <entry>
+            <string>Default Resource</string>
+            <string>[Default Resource]</string>
+          </entry>
+        </resourceIds>
+        <queueBufferSize>1000</queueBufferSize>
+      </sourceConnectorProperties>
+    </properties>
+    <transformer version="4.4.0">
+      <elements/>
+      <inboundTemplate encoding="base64"/>
+      <inboundDataType>XML</inboundDataType>
+      <outboundDataType>XML</outboundDataType>
+      <inboundProperties class="com.mirth.connect.plugins.datatypes.xml.XMLDataTypeProperties" version="4.4.0">
+        <serializationProperties class="com.mirth.connect.plugins.datatypes.xml.XMLSerializationProperties" version="4.4.0">
+          <stripNamespaces>false</stripNamespaces>
+        </serializationProperties>
+        <batchProperties class="com.mirth.connect.plugins.datatypes.xml.XMLBatchProperties" version="4.4.0">
+          <splitType>Element_Name</splitType>
+          <elementName/>
+          <level>1</level>
+          <query/>
+          <batchScript/>
+        </batchProperties>
+      </inboundProperties>
+      <outboundProperties class="com.mirth.connect.plugins.datatypes.xml.XMLDataTypeProperties" version="4.4.0">
+        <serializationProperties class="com.mirth.connect.plugins.datatypes.xml.XMLSerializationProperties" version="4.4.0">
+          <stripNamespaces>false</stripNamespaces>
+        </serializationProperties>
+        <batchProperties class="com.mirth.connect.plugins.datatypes.xml.XMLBatchProperties" version="4.4.0">
+          <splitType>Element_Name</splitType>
+          <elementName/>
+          <level>1</level>
+          <query/>
+          <batchScript/>
+        </batchProperties>
+      </outboundProperties>
+    </transformer>
+    <filter version="4.4.0">
+      <elements>
+        <com.mirth.connect.plugins.javascriptrule.JavaScriptRule version="4.4.0">
+          <name>Validate against XSD</name>
+          <sequenceNumber>0</sequenceNumber>
+          <enabled>true</enabled>
+          <script msync-fileref="sourceConnector-filter-step-0-Validate against XSD.js"/>
+        </com.mirth.connect.plugins.javascriptrule.JavaScriptRule>
+      </elements>
+    </filter>
+    <transportName>Channel Reader</transportName>
+    <mode>SOURCE</mode>
+    <enabled>true</enabled>
+    <waitForPrevious>true</waitForPrevious>
+  </sourceConnector>
+  <destinationConnectors>
+    <connector version="4.4.0">
+      <metaDataId>1</metaDataId>
+      <name>Destination 1</name>
+      <properties class="com.mirth.connect.connectors.vm.VmDispatcherProperties" version="4.4.0">
+        <pluginProperties/>
+        <destinationConnectorProperties version="4.4.0">
+          <queueEnabled>false</queueEnabled>
+          <sendFirst>false</sendFirst>
+          <retryIntervalMillis>10000</retryIntervalMillis>
+          <regenerateTemplate>false</regenerateTemplate>
+          <retryCount>0</retryCount>
+          <rotate>false</rotate>
+          <includeFilterTransformer>false</includeFilterTransformer>
+          <threadCount>1</threadCount>
+          <threadAssignmentVariable/>
+          <validateResponse>false</validateResponse>
+          <resourceIds class="linked-hash-map">
+            <entry>
+              <string>Default Resource</string>
+              <string>[Default Resource]</string>
+            </entry>
+          </resourceIds>
+          <queueBufferSize>1000</queueBufferSize>
+          <reattachAttachments>true</reattachAttachments>
+        </destinationConnectorProperties>
+        <channelId>none</channelId>
+        <channelTemplate>${message.encodedData}</channelTemplate>
+        <mapVariables/>
+      </properties>
+      <transformer version="4.4.0">
+        <elements/>
+        <inboundDataType>XML</inboundDataType>
+        <outboundDataType>XML</outboundDataType>
+        <inboundProperties class="com.mirth.connect.plugins.datatypes.xml.XMLDataTypeProperties" version="4.4.0">
+          <serializationProperties class="com.mirth.connect.plugins.datatypes.xml.XMLSerializationProperties" version="4.4.0">
+            <stripNamespaces>false</stripNamespaces>
+          </serializationProperties>
+          <batchProperties class="com.mirth.connect.plugins.datatypes.xml.XMLBatchProperties" version="4.4.0">
+            <splitType>Element_Name</splitType>
+            <elementName/>
+            <level>1</level>
+            <query/>
+            <batchScript/>
+          </batchProperties>
+        </inboundProperties>
+        <outboundProperties class="com.mirth.connect.plugins.datatypes.xml.XMLDataTypeProperties" version="4.4.0">
+          <serializationProperties class="com.mirth.connect.plugins.datatypes.xml.XMLSerializationProperties" version="4.4.0">
+            <stripNamespaces>false</stripNamespaces>
+          </serializationProperties>
+          <batchProperties class="com.mirth.connect.plugins.datatypes.xml.XMLBatchProperties" version="4.4.0">
+            <splitType>Element_Name</splitType>
+            <elementName/>
+            <level>1</level>
+            <query/>
+            <batchScript/>
+          </batchProperties>
+        </outboundProperties>
+      </transformer>
+      <responseTransformer version="4.4.0">
+        <elements/>
+        <inboundDataType>XML</inboundDataType>
+        <outboundDataType>XML</outboundDataType>
+        <inboundProperties class="com.mirth.connect.plugins.datatypes.xml.XMLDataTypeProperties" version="4.4.0">
+          <serializationProperties class="com.mirth.connect.plugins.datatypes.xml.XMLSerializationProperties" version="4.4.0">
+            <stripNamespaces>false</stripNamespaces>
+          </serializationProperties>
+          <batchProperties class="com.mirth.connect.plugins.datatypes.xml.XMLBatchProperties" version="4.4.0">
+            <splitType>Element_Name</splitType>
+            <elementName/>
+            <level>1</level>
+            <query/>
+            <batchScript/>
+          </batchProperties>
+        </inboundProperties>
+        <outboundProperties class="com.mirth.connect.plugins.datatypes.xml.XMLDataTypeProperties" version="4.4.0">
+          <serializationProperties class="com.mirth.connect.plugins.datatypes.xml.XMLSerializationProperties" version="4.4.0">
+            <stripNamespaces>false</stripNamespaces>
+          </serializationProperties>
+          <batchProperties class="com.mirth.connect.plugins.datatypes.xml.XMLBatchProperties" version="4.4.0">
+            <splitType>Element_Name</splitType>
+            <elementName/>
+            <level>1</level>
+            <query/>
+            <batchScript/>
+          </batchProperties>
+        </outboundProperties>
+      </responseTransformer>
+      <filter version="4.4.0">
+        <elements/>
+      </filter>
+      <transportName>Channel Writer</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <waitForPrevious>true</waitForPrevious>
+    </connector>
+  </destinationConnectors>
+  <preprocessingScript msync-fileref="PreprocessingScript.js"/>
+  <postprocessingScript msync-fileref="PostprocessingScript.js"/>
+  <deployScript msync-fileref="DeployScript.js"/>
+  <undeployScript msync-fileref="UndeployScript.js"/>
+  <properties version="4.4.0">
+    <clearGlobalChannelMap>false</clearGlobalChannelMap>
+    <messageStorageMode>DEVELOPMENT</messageStorageMode>
+    <encryptData>false</encryptData>
+    <encryptAttachments>false</encryptAttachments>
+    <encryptCustomMetaData>false</encryptCustomMetaData>
+    <removeContentOnCompletion>false</removeContentOnCompletion>
+    <removeOnlyFilteredOnCompletion>false</removeOnlyFilteredOnCompletion>
+    <removeAttachmentsOnCompletion>false</removeAttachmentsOnCompletion>
+    <initialState>STARTED</initialState>
+    <storeAttachments>false</storeAttachments>
+    <metaDataColumns>
+      <metaDataColumn>
+        <name>SOURCE</name>
+        <type>STRING</type>
+        <mappingName>mirth_source</mappingName>
+      </metaDataColumn>
+      <metaDataColumn>
+        <name>TYPE</name>
+        <type>STRING</type>
+        <mappingName>mirth_type</mappingName>
+      </metaDataColumn>
+    </metaDataColumns>
+    <attachmentProperties version="4.4.0">
+      <type>None</type>
+      <properties/>
+    </attachmentProperties>
+    <resourceIds class="linked-hash-map">
+      <entry>
+        <string>Default Resource</string>
+        <string>[Default Resource]</string>
+      </entry>
+    </resourceIds>
+  </properties>
+  <exportData>
+    <metadata>
+      <enabled>true</enabled>
+      <lastModified>
+        <time>1528480822404</time>
+        <timezone>America/Los_Angeles</timezone>
+      </lastModified>
+      <pruningSettings>
+        <archiveEnabled>true</archiveEnabled>
+        <pruneErroredMessages>false</pruneErroredMessages>
+      </pruningSettings>
+    </metadata>
+    <dependentIds/>
+    <dependencyIds/>
+    <channelTags>
+      <channelTag>
+        <id>e1c60993-635f-4a7f-9442-afe9c81a4de7</id>
+        <name>XSD</name>
+        <channelIds>
+          <string>9c5f43ca-544c-4a40-80f6-455868c7e3f4</string>
+        </channelIds>
+        <backgroundColor>
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </backgroundColor>
+      </channelTag>
+    </channelTags>
+  </exportData>
+</channel>
