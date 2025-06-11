@@ -2,7 +2,7 @@ importPackage(javax.xml);
 importPackage(javax.xml.transform.stream);
 importPackage(javax.xml.validation);
 
-// Create thread-safe Schema once and store in global channel map for Arbaz
+// I dont like it
 var schema = $gc('schema');
 if (schema == null) {
 	var schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
