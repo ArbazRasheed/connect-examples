@@ -2,7 +2,7 @@ importPackage(javax.xml);
 importPackage(javax.xml.transform.stream);
 importPackage(javax.xml.validation);
 
-// Arbaz Sadi and SUbodh
+// Kirti Maam
 var schema = $gc('schema');
 if (schema == null) {
 	var schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
